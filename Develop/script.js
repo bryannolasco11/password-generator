@@ -17,15 +17,12 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   
 
-  if(getCriteria) {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-    var passwordLength = 8
     
     passwordText.value = password;
   
-    } 
-  
+}
  
 
 
@@ -84,5 +81,6 @@ var getCriteria = function() {
     if (specialCharactersQuery) {
       choiceArray= choiceArray.concat(specialCharacters);
     }
-  }
 }
+getCriteria();
+
