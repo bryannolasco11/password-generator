@@ -6,7 +6,7 @@ var specialCharacters= ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '
 var choiceArray = [];
 
 
-
+// stuck
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
