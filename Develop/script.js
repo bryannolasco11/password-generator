@@ -1,91 +1,56 @@
 // Assignment code here
+// Assignment code here
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var lowerCase = ['a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's','t', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var specialCharacters= ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
-var choiceArray = [];
-
-
+var ArrayofCharacters = [];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword () {
+  console.log("Hey!  You clicked the button!")
+
+  return "Generated Password will go here";
+}
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password; //this is what is displayed on the screen
+
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
-function writePassword() {
-    var answerPrompts = generatePassword();
+function passwordType(){
+  //types of characters
+  var lowerCaseQuery = window.confirm("Press confirm if you would like to use lowercase letters in your password?");
+   if (lowerCaseQuery) {
+     choiceArray = choiceArray.concat(lowerCase);
+   }
    
-      var password = generatePassword();
-      var passwordText = document.querySelector("#password");
-    
-      passwordText.value = password;
-    }
-   
-    
-
  
-
-
-
-function generatePassword() {
-  console.log("button clicked")
-  var password= "";
-  for(var i = 0; i<passwordLength; i++) {
-    var randomLetter = Math.floor(Math.random() * choiceArray.length);
-    password = password + choiceArray[randomLetter];
-  }
-  return password;
-  
-
-  // 2. validate the input
-  
-  // 3. generate password
-  
-  // 4. display password
-  
-  
+   var upperCaseQuery = window.confirm("Press confirm if you would you like to use uppercase letter in your password?");
+   if (upperCaseQuery) {
+     choiceArray = choiceArray.concat(upperCase);
+   }
+ 
+   var numbersQuery = window.confirm("Press confirm if you would you like to use numbers in your password?");
+   if (numbersQuery) {
+     choiceArray= choiceArray.concat(numbers);
+   }
+ 
+   var specialCharactersQuery = window.confirm("Press confirm if you would you like to use special characters in your password?");
+   if (specialCharactersQuery) {
+     choiceArray= choiceArray.concat(specialCharacters);
+   }
+   passwordType();
 }
 
-// 1. prompt user for the user criteria
-
-  //    a. prompt user for password length at least 8 no more than 128 characters
-
- 
-
-  //    b. prompt user for upper or lower case, numeric, special characters
-function getCriteria() {
-  choiceArray = [];
-  var passwordLength = prompt("Between 8 and 128, how many characters do you want your password to be?");
-  var passwordLength = parseInt(passwordLength)
-  if(isNaN(passwordLength) || passwordLength < 8 || passwordLength >128) {
-    window.alert("Please use a number between 8 and 128.");
-    getCriteria();
-  }
+function passwordLength(){
   
-  var lowerCaseQuery = window.confirm("Would you like to use lowercase letter in your password?");
-    if (lowerCaseQuery) {
-      choiceArray = choiceArray.concat(lowerCase);
-    }
-    
-  
-  var upperCaseQuery = window.confirm("Would you like to use uppercase letter in your password?");
-    if (upperCaseQuery) {
-      choiceArray = choiceArray.concat(upperCase);
-    }
-  
-  var numbersQuery = window.confirm("Would you like to use numbers in your password?");
-    if (numbersQuery) {
-      choiceArray= choiceArray.concat(numbers);
-    }
-
-  var specialCharactersQuery = window.confirm("Would you like to use special characters in your password?");
-    if (specialCharactersQuery) {
-      choiceArray= choiceArray.concat(specialCharacters);
-    }
-    console.log(choiceArray);
-    
 }
-
-
