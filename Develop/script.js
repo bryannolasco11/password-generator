@@ -12,8 +12,10 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword () {
   console.log("Hey!  You clicked the button!")
   
-  passwordType();
-  return choiceArray;
+  passwordLength();
+  return characterLength;
+
+
   
   //return "Generated Password will go here";
 }
@@ -57,12 +59,13 @@ function passwordType(){
 // function for password length
 function passwordLength(){
   characterLength = parseInt(prompt("Between 8 and 128, how many characters would you like in your password?"));
-  if (isNaN(characterLength) || characterLength < 8 || characterLength > 8) {
+  if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
     window.alert("You must pick a number between 8 and 128.");
     passwordLength();
   }
 
   else if (characterLength >=8 && characterLength <=128)
-    window.alert(characterLength + "is a good number.")
+    window.alert(characterLength + " is a good number.")
   console.log(characterLength);
+  return characterLength;
 }
