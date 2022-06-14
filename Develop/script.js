@@ -6,7 +6,7 @@ var specialCharacters= ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '
 var choiceArray = [];
 
 
-// stuck
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -15,14 +15,16 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-  
-
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
+    var answerPrompts = generatePassword();
+   
+      var password = generatePassword();
+      var passwordText = document.querySelector("#password");
     
-    passwordText.value = password;
-  
-}
+      passwordText.value = password;
+    }
+   
+    
+
  
 
 
@@ -30,7 +32,7 @@ function writePassword() {
 function generatePassword() {
   console.log("button clicked")
   var password= "";
-  for(var i = o; i<passwordLength; i++) {
+  for(var i = 0; i<passwordLength; i++) {
     var randomLetter = Math.floor(Math.random() * choiceArray.length);
     password = password + choiceArray[randomLetter];
   }
@@ -42,7 +44,8 @@ function generatePassword() {
   // 3. generate password
   
   // 4. display password
-  return "generated password"
+  
+  
 }
 
 // 1. prompt user for the user criteria
@@ -52,18 +55,18 @@ function generatePassword() {
  
 
   //    b. prompt user for upper or lower case, numeric, special characters
-var getCriteria = function() {
+function getCriteria() {
   choiceArray = [];
-  var passwordLength = window.prompt("Between 8 and 128, how many characters do you want your password to be?");
+  var passwordLength = prompt("Between 8 and 128, how many characters do you want your password to be?");
   var passwordLength = parseInt(passwordLength)
   if(isNaN(passwordLength) || passwordLength < 8 || passwordLength >128) {
     window.alert("Please use a number between 8 and 128.");
-    return getCriteria();
+    getCriteria();
   }
   
   var lowerCaseQuery = window.confirm("Would you like to use lowercase letter in your password?");
     if (lowerCaseQuery) {
-      choiceArray.push(lowerCase);
+      choiceArray = choiceArray.concat(lowerCase);
     }
     
   
@@ -81,6 +84,8 @@ var getCriteria = function() {
     if (specialCharactersQuery) {
       choiceArray= choiceArray.concat(specialCharacters);
     }
+    console.log(choiceArray);
+    
 }
-getCriteria();
+
 
