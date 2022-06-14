@@ -40,6 +40,7 @@ generateBtn.addEventListener("click", writePassword);
 // This function makes the types of characters the user chooses
 function passwordType(){
   //types of characters
+  choiceArray = [];
   var lowerCaseQuery = window.confirm("Press confirm if you would like to use lowercase letters in your password?");
    if (lowerCaseQuery) {
      choiceArray = choiceArray.concat(lowerCase);
