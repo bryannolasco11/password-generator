@@ -5,17 +5,23 @@ var lowerCase = ['a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var specialCharacters= ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
 var choiceArray = [];
-
+var answer = "";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//This generates the password
 function generatePassword () {
-  console.log("Hey!  You clicked the button!")
-  
-  passwordLength();
-  return characterLength;
+  console.log("Hey!  You clicked the button!");
+  passwordType();  // runs my passwordType funtion
+  passwordLength(); // runs my passwordLength function
+  answer ="";
+  for (var i=0; i<characterLength; i++) {
+    var randomNumber = Math.floor(Math.random() * choiceArray.length);
+    var randomCharacter = choiceArray[randomNumber];
+    answer += randomCharacter;
 
-
+  }
+  return answer;
   
   //return "Generated Password will go here";
 }
@@ -31,6 +37,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// This function makes the types of characters the user chooses
 function passwordType(){
   //types of characters
   var lowerCaseQuery = window.confirm("Press confirm if you would like to use lowercase letters in your password?");
@@ -54,7 +61,7 @@ function passwordType(){
      choiceArray= choiceArray.concat(specialCharacters);
    }
    console.log(choiceArray);
-   return choiceArray;
+   return choiceArray; // returns the array
 }
 // function for password length
 function passwordLength(){
@@ -67,5 +74,5 @@ function passwordLength(){
   else if (characterLength >=8 && characterLength <=128)
     window.alert(characterLength + " is a good number.")
   console.log(characterLength);
-  return characterLength;
+  return characterLength;  //returns a value
 }
