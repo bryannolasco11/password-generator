@@ -41,23 +41,23 @@ generateBtn.addEventListener("click", writePassword);
 function passwordType(){
   //types of characters
   choiceArray = [];
-  var lowerCaseQuery = window.confirm("Press confirm if you would like to use lowercase letters in your password?");
+  var lowerCaseQuery = window.confirm("Press OK if you would like to use lowercase letters in your password?");
    if (lowerCaseQuery) {
      choiceArray = choiceArray.concat(lowerCase);
    }
    
  
-   var upperCaseQuery = window.confirm("Press confirm if you would you like to use uppercase letter in your password?");
+   var upperCaseQuery = window.confirm("Press OK if you would you like to use uppercase letter in your password?");
    if (upperCaseQuery) {
      choiceArray = choiceArray.concat(upperCase);
    }
  
-   var numbersQuery = window.confirm("Press confirm if you would you like to use numbers in your password?");
+   var numbersQuery = window.confirm("Press OK if you would you like to use numbers in your password?");
    if (numbersQuery) {
      choiceArray= choiceArray.concat(numbers);
    }
  
-   var specialCharactersQuery = window.confirm("Press confirm if you would you like to use special characters in your password?");
+   var specialCharactersQuery = window.confirm("Press OK if you would you like to use special characters in your password?");
    if (specialCharactersQuery) {
      choiceArray= choiceArray.concat(specialCharacters);
    }
