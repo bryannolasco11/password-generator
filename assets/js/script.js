@@ -62,6 +62,14 @@ function passwordType(){
      choiceArray= choiceArray.concat(specialCharacters);
    }
    console.log(choiceArray);
+   console.log(choiceArray.length);
+
+   if (choiceArray.length == 0) {
+     console.log(choiceArray.length);
+     
+     window.alert("Choosing at least one type of characters would help.");
+     passwordType();
+   }
    return choiceArray; // returns the array
 }
 // function for password length
